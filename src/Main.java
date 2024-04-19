@@ -10,29 +10,34 @@ public class Main {
         while (true) {
             printMenu();
             int command = scanner.nextInt();
+            String month = "";
 
             switch (command) {
                 case (1):
-                System.out.println("Enter the nam of month in format: \"January\", \" February\" ");
-                String month = scanner.next();
-                System.out.println("Enter the number of day from 1 to 30.");
-                int day = scanner.nextInt();
-                System.out.println("Enter the number of steps completed.");
-                int steps = scanner.nextInt();
-                stepTracker.saveStep(month, day, steps);
+                    System.out.println("Enter the nam of month in format: \"January\", \" February\" ");
+                    month = scanner.next();
+                    System.out.println("Enter the number of day from 1 to 30.");
+                    int day = scanner.nextInt();
+                    System.out.println("Enter the number of steps completed.");
+                    int steps = scanner.nextInt();
+                    stepTracker.saveStep(month, day, steps);
+                    break;
 
                 case (2) :
-                System.out.println("Enter the nam of month in format: \"January\", \" February\"");
-                String month = scanner.next();
-                stepTracker.printStatistic(month);
-            } else if (command == 3) {
-                System.out.println("Enter the required number of steps");
-                int targetStepsCount = scanner.nextInt();
-                stepTracker.changePurposeOfDailySteps(targetStepsCount);
-            } else if (command == 0) {
-                break;
-            } else {
-                System.out.println("Sorry, there is no such team yet.");
+                    System.out.println("Enter the nam of month in format: \"January\", \" February\"");
+                    month = scanner.next();
+                    stepTracker.printStatistic(month);
+                    break;
+                case (3) :
+                    System.out.println("Enter the required number of steps");
+                    int targetStepsCount = scanner.nextInt();
+                    stepTracker.changePurposeOfDailySteps(targetStepsCount);
+                    break;
+                case (0) :
+                    break;
+                default:
+                    System.out.println("Sorry, there is no such team yet.");
+                    break;
             }
         }
     }
